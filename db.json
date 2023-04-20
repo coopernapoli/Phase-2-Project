@@ -11,6 +11,18 @@
       "newCountry": "",
       "newGender": "male",
       "id": 1
+    },
+    {
+      "newUsername": "pandalaxbro",
+      "newFirstName": "Cooper",
+      "newLastName": "Napoli",
+      "newPassword": "pandalax1C@",
+      "newEmail": "napolisc10@gmail.com",
+      "newPhone": "614-315-8856",
+      "newAddress": "534 E 3rd Street Eagle, CO 81631",
+      "newCountry": "",
+      "newGender": "male",
+      "id": 2
     }
   ]
 }

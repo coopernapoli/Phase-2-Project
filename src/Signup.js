@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 const SignUp = () => {
 
@@ -12,10 +13,56 @@ const SignUp = () => {
     const [newCountry, newCountryPost]=useState("");
     const [newGender, newGenderPost]=useState("male");
 
+    const navigate=useNavigate();
+
+    const validate=()=>{
+        let proceed=true;
+        let errormessage = 'Please enter the value in '
+        if (newUsername===null || newUsername === '') {
+            proceed = false;
+            errormessage+='Username';
+        }
+        if (newPassword===null || newPassword === '') {
+            proceed = false;
+            errormessage+='Password';
+        }
+        if (newFirstName===null || newFirstName=== '') {
+            proceed = false;
+            errormessage+='First Name';
+        }
+        if (newLastName===null || newLastName === '') {
+            proceed = false;
+            errormessage+='Last Name';
+        }
+        if (newEmail===null || newEmail === '') {
+            proceed = false;
+            errormessage+='Email';
+        }
+        if (newAddress===null || newAddress === '') {
+            proceed = false;
+            errormessage+='Address';
+        }
+
+        if (!proceed){
+            toast.warning(errormessage)
+        }else {
+            if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(newEmail)){
+
+            }else{
+                proceed=false;
+                toast.warning('Please enter valid email.')
+            }
+        }
+        return proceed;
+    }
+
     const createUser = (e) => {
         e.preventDefault(); 
+
         let userProfile={newUsername,newFirstName,newLastName,newPassword,newEmail,
         newPhone,newAddress,newCountry,newGender};
+
+        if (validate()) {
         fetch('http://localhost:8000/users',{
             method:'POST',
             headers: {'content-type': 'application/json'},
@@ -28,11 +75,12 @@ const SignUp = () => {
         })
         .then(() => {
             toast.success('Registered successfully!')
+            navigate('/login');
         }).catch((err)=>{
             toast.error('Failed: ' + err.message);
         });
         console.log(userProfile);
-    }
+        }}
     return (
         <div>
             <div className="offset-lg-3 col-lg-6">
