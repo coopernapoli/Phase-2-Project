@@ -14,6 +14,9 @@ const SignUp = () => {
 
     const createUser = (e) => {
         e.preventDefault(); 
+        let userProfile=[newUsername,newFirstName,newLastName,newPassword,newEmail,
+        newPhone,newAddress,newCountry,newGender];
+        console.log(userProfile)
     }
     return (
         <div>
