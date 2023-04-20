@@ -1,16 +1,22 @@
 import {useState} from "react";
 import { Link } from "react-router-dom";
 const SignUp = () => {
-    const [newUsername, newUsernamePost]=useState();
-    const [newPassword, newPasswordPost]=useState();
 
-    const CreateUser = (e) => {
+    const [newUsername, newUsernamePost]=useState();
+    const [newFirstName, newFirstNamePost]=useState();
+    const [newLastName, newLastNamePost]=useState();
+    const [newPassword, newPasswordPost]=useState();
+    const [newPhone, newPhonePost]=useState();
+    const [newAddress, newAddressPost]=useState();
+    const [newCountry, newCountryPost]=useState();
+
+    const createUser = (e) => {
         e.preventDefault(); 
     }
     return (
         <div>
             <div className="offset-lg-3 col-lg-6">
-                <form className="container"> 
+                <form className="container" onSubmit={createUser}> 
                     <div className="card">
                         <div className="card-header">
                         <h2>Sign-Up</h2>
@@ -20,19 +26,31 @@ const SignUp = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Username <span className="errmsg">*</span></label>
-                                        <input className="form-control"></input>
+                                        <input value={newUsername} onChange={e=>newUsernamePost(e.target.value)} className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>First Name <span className="errmsg">*</span></label>
+                                        <input value={newFirstName} onChange={e=>newFirstNamePost(e.target.value)} className="form-control"></input>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="form-group">
+                                        <label>Last Name<span className="errmsg">*</span></label>
+                                        <input value={newLastName} onChange={e=>newLastNamePost(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Password<span className="errmsg">*</span></label>
-                                        <input type="password" className="form-control"></input>
+                                        <input value={newPassword} onChange={e=>newPasswordPost(e.target.value)} type="password" className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email<span className="errmsg">*</span></label>
-                                        <input className="form-control"></input>
+                                        <input value={newPhone} onChange={e=>newPhonePost(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
@@ -65,14 +83,15 @@ const SignUp = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Gender</label>
-                                        <input type="radio" value="male" className="form-control"></input>
+                                        <br></br>
+                                        <input type="radio" value="male" className="app-check"></input>
                                         <label>Male</label>
-                                        <input type="radio" value="female" className="form-control"></input>
+                                        <input type="radio" value="female" className="app-check"></input>
                                         <label>Female</label>
-                                        <input type="radio" value="nonbinary" className="form-control"></input>
+                                        <input type="radio" value="nonbinary" className="app-check"></input>
                                         <label>Non-Binary</label>
-                                        <input type="radio" value="refuse" className="form-control"></input>
-                                        <label>Prefer Not To Answer</label>
+                                        <input type="radio" value="refuse" className="app-check"></input>
+                                        <label>N/A</label>
                                     </div>
                                 </div>
                                 </div>
@@ -80,6 +99,7 @@ const SignUp = () => {
                         </div>
                         <div className="card-footer">
                             <button className="btn btn-primary" type="submit">Register</button>
+                            <a className="btn btn-danger">Back</a>
                         </div>
 
                     </div>
