@@ -1,5 +1,16 @@
 {
-  "user": [
-    
+  "users": [
+    {
+      "newUsername": "lol",
+      "newFirstName": "Coop",
+      "newLastName": "ppopopopop",
+      "newPassword": "1231412512",
+      "newEmail": "p2@gmail.com",
+      "newPhone": "89898989898",
+      "newAddress": "919191919191",
+      "newCountry": "",
+      "newGender": "male",
+      "id": 1
+    }
   ]
 }

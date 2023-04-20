@@ -1,22 +1,31 @@
 import {useState} from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 const SignUp = () => {
 
-    const [newUsername, newUsernamePost]=useState();
-    const [newFirstName, newFirstNamePost]=useState();
-    const [newLastName, newLastNamePost]=useState();
-    const [newPassword, newPasswordPost]=useState();
-    const [newEmail, newEmailPost]=useState();
-    const [newPhone, newPhonePost]=useState();
-    const [newAddress, newAddressPost]=useState();
-    const [newCountry, newCountryPost]=useState();
-    const [newGender, newGenderPost]=useState();
+    const [newUsername, newUsernamePost]=useState("");
+    const [newFirstName, newFirstNamePost]=useState("");
+    const [newLastName, newLastNamePost]=useState("");
+    const [newPassword, newPasswordPost]=useState("");
+    const [newEmail, newEmailPost]=useState("");
+    const [newPhone, newPhonePost]=useState("");
+    const [newAddress, newAddressPost]=useState("");
+    const [newCountry, newCountryPost]=useState("");
+    const [newGender, newGenderPost]=useState("male");
 
     const createUser = (e) => {
         e.preventDefault(); 
-        let userProfile=[newUsername,newFirstName,newLastName,newPassword,newEmail,
-        newPhone,newAddress,newCountry,newGender];
-        console.log(userProfile)
+        let userProfile={newUsername,newFirstName,newLastName,newPassword,newEmail,
+        newPhone,newAddress,newCountry,newGender};
+        fetch('http://localhost:8000/users',{
+            method:'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(userProfile)
+        }).then((res)=>{
+            toast.success('Registered successfully!')
+        }).catch((err)=>{
+            toast.error('Failed:' + err.message);
+        });
+        console.log(userProfile);
     }
     return (
         <div>
