@@ -4,6 +4,7 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Menu from './Menu.js';
 import Home from './Home.js';
 import About from './About.js';
@@ -13,6 +14,8 @@ import Login from './Login.js';
 
 function App() {
     return (
+      <div className='app'>
+      <ToastContainer theme='colored'></ToastContainer>
       <BrowserRouter>
         <div>
           <Menu />
@@ -25,6 +28,8 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
+
+      </div>
     );
 }
 

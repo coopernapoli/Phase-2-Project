@@ -21,9 +21,15 @@ const SignUp = () => {
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(userProfile)
         }).then((res)=>{
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json();
+        })
+        .then(() => {
             toast.success('Registered successfully!')
         }).catch((err)=>{
-            toast.error('Failed:' + err.message);
+            toast.error('Failed: ' + err.message);
         });
         console.log(userProfile);
     }
