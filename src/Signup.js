@@ -6,9 +6,11 @@ const SignUp = () => {
     const [newFirstName, newFirstNamePost]=useState();
     const [newLastName, newLastNamePost]=useState();
     const [newPassword, newPasswordPost]=useState();
+    const [newEmail, newEmailPost]=useState();
     const [newPhone, newPhonePost]=useState();
     const [newAddress, newAddressPost]=useState();
     const [newCountry, newCountryPost]=useState();
+    const [newGender, newGenderPost]=useState();
 
     const createUser = (e) => {
         e.preventDefault(); 
@@ -50,19 +52,19 @@ const SignUp = () => {
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Email<span className="errmsg">*</span></label>
-                                        <input value={newPhone} onChange={e=>newPhonePost(e.target.value)} className="form-control"></input>
+                                        <input value={newEmail} onChange={e=>newEmailPost(e.target.value)} className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Phone <span className="errmsg">*</span></label>
-                                        <input className="form-control"></input>
+                                        <input value={newPhone} onChange={e=>newPhonePost(e.target.value)}  className="form-control"></input>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Country<span className="errmsg">*</span></label>
-                                        <select className="form-control">
+                                        <select value={newCountry} onChange={e=>newCountryPost(e.target.value)} className="form-control">
                                             <option value="usa">USA</option>
                                             <option value="uk">UK</option>
                                             <option value="mexico">Mexico</option>
@@ -77,20 +79,20 @@ const SignUp = () => {
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                         <label>Address</label>
-                                            <textarea className="form-control"></textarea>
+                                            <textarea value={newAddress} onChange={e=>newAddressPost(e.target.value)} className="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="form-group">
                                         <label>Gender</label>
                                         <br></br>
-                                        <input type="radio" value="male" className="app-check"></input>
+                                        <input type="radio" checked={newGender==='male'} onChange={e=>newGenderPost(e.target.value)} value="male" className="app-check"></input>
                                         <label>Male</label>
-                                        <input type="radio" value="female" className="app-check"></input>
+                                        <input type="radio" checked={newGender==='female'} onChange={e=>newGenderPost(e.target.value)} value="female" className="app-check"></input>
                                         <label>Female</label>
-                                        <input type="radio" value="nonbinary" className="app-check"></input>
+                                        <input type="radio" checked={newGender==='nonbinary'} onChange={e=>newGenderPost(e.target.value)} value="nonbinary" className="app-check"></input>
                                         <label>Non-Binary</label>
-                                        <input type="radio" value="refuse" className="app-check"></input>
+                                        <input type="radio" checked={newGender==='refuse'} onChange={e=>newGenderPost(e.target.value)} value="refuse" className="app-check"></input>
                                         <label>N/A</label>
                                     </div>
                                 </div>
