@@ -1,28 +1,40 @@
 {
   "users": [
     {
-      "newUsername": "",
-      "newFirstName": "",
-      "newLastName": "",
-      "newPassword": "",
-      "newEmail": "",
-      "newPhone": "",
-      "newAddress": "",
-      "newCountry": "",
-      "newGender": "male",
+      "username": "admin",
+      "firstname": "Cooper",
+      "lastname": "Napoli",
+      "password": "admin",
+      "email": "napolisc10@gmail.com",
+      "phone": "6143158856",
+      "address": "1234 Flatiron Lane",
+      "country": "",
+      "gender": "male",
       "id": 1
     },
     {
-      "newUsername": "pandalaxbro",
-      "newFirstName": "Cooper",
-      "newLastName": "Napoli",
-      "newPassword": "pandalax1C@",
-      "newEmail": "napolisc10@gmail.com",
-      "newPhone": "614-315-8856",
-      "newAddress": "534 E 3rd Street Eagle, CO 81631",
-      "newCountry": "",
-      "newGender": "male",
+      "username": "coopernapoli",
+      "firstname": "Cooper",
+      "lastname": "Napoli",
+      "password": "pandalax",
+      "email": "napolisc10@gmail.com",
+      "phone": "6143158856",
+      "address": "1212 Cooper Lane",
+      "country": "",
+      "gender": "male",
       "id": 2
+    },
+    {
+      "username": "sweetpea",
+      "firstname": "Cooper",
+      "lastname": "Napoli",
+      "password": "indy",
+      "email": "indy@gmail.com",
+      "phone": "6141111111",
+      "address": "12121 Lane",
+      "country": "",
+      "gender": "male",
+      "id": 3
     }
   ]
 }

@@ -59,8 +59,18 @@ const SignUp = () => {
     const createUser = (e) => {
         e.preventDefault(); 
 
-        let userProfile={newUsername,newFirstName,newLastName,newPassword,newEmail,
-        newPhone,newAddress,newCountry,newGender};
+        let userProfile={
+            
+            username: newUsername,
+            firstname: newFirstName,
+            lastname: newLastName,
+            password: newPassword,
+            email: newEmail,
+            phone: newPhone,
+            address: newAddress,
+            country: newCountry,
+            gender: newGender
+        };
 
         if (validate()) {
         fetch('http://localhost:8000/users',{

@@ -1,23 +1,38 @@
 import {useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {toast} from "react-toastify";
 const Login = () => {
     const [username, usernameUpdate]=useState();
     const [password, passwordUpdate]=useState();
-    const url="";
 
+    const navigate=useNavigate();
+
+    
     const loginUser = (e) => {
         e.preventDefault();
-        if (validate())
-
-        fetch(url+username).then((res)=>{
-            return res.json();
-        }).then((resp)=>{
-
-        }).catch((err)=>{
-            toast.error('Login failed due to:'+err.message)
-        })
+        if (validate()){
+            fetch(`http://localhost:8000/users?username=${username}`).then((res)=>{
+                console.log(res)
+                return res.json();
+            }).then((resp)=>{
+                if(Object.keys(resp).length===0) {
+                    console.log(password)
+                    toast.error('Please enter valid username.');
+                }else{
+                    if(resp.password === password){
+                        toast.success('Logged In')
+                        navigate('/')
+                    } else {
+                        toast.error('Please enter valid password.')
+                    }
+                }
+            }).catch((err)=>{
+                toast.error('Login Failed due to: '+err.message)
+                console.log(err.message)
+            })
+        }
     }
+
     const validate = () => {
         let result = true;
         if (username === ''|| username===null){
@@ -33,7 +48,7 @@ const Login = () => {
     return (
         <div className="row">
             <div className="offset-lg-3 col-lg-6">
-                <form onSubmit={loginUser}>
+                <form onSubmit={loginUser} className="container">
                     <div className ="card">
                         <div className="cardHeader">
                             <h2>Login</h2>
