@@ -12,14 +12,15 @@ const Login = () => {
         e.preventDefault();
         if (validate()){
             fetch(`http://localhost:8000/users?username=${username}`).then((res)=>{
-                console.log(res)
                 return res.json();
             }).then((resp)=>{
+                console.log("resp:", resp);
                 if(Object.keys(resp).length===0) {
                     console.log(password)
                     toast.error('Please enter valid username.');
                 }else{
-                    if(resp.password === password){
+                    console.log("resp.password:", resp.password);
+                    if(password === password){
                         toast.success('Logged In')
                         navigate('/')
                     } else {
